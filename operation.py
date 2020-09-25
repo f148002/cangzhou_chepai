@@ -23,10 +23,10 @@ def mul_divOperation(s):
         sub_str = sub_str.group()
         if sub_str.count('*'):
             l_num, r_num = sub_str.split('*')
-            s = s.replace(sub_str, str(float(l_num)*float(r_num)))
+            s = s.replace(sub_str, str(int(l_num)*int(r_num)))
         else:
             l_num, r_num = sub_str.split('/')
-            s = s.replace(sub_str, str(float(l_num) / float(r_num)))
+            s = s.replace(sub_str, str(int(l_num) / int(r_num)))
         #print(s)
         s = formatInput(s)
         sub_str = re.search('(\d+\.?\d*[*/]\d+\.?\d*)', s)
@@ -45,8 +45,14 @@ def add_minusOperation(s):
     #print(tmp)
     return s
 
+def opearation_result(abc):
+    if re.search('[+-]',abc):
+        result = add_minusOperation(abc)
+    else:
+        result = mul_divOperation(abc)
+    return result
+
 if __name__ == '__main__':
 
-    abc = '5-2'
-    result = add_minusOperation(abc)
+    result = opearation_result()
     print(result)

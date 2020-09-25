@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from aip import AipOcr
 
-
 class baidu_orc(object):
 
     def __init__(self):
@@ -35,5 +34,5 @@ class baidu_orc(object):
 
 if __name__ == '__main__':
     a = baidu_orc()
-    result = a.get_captcha('math.jpg')
+    result = a.get_captcha('capcha.png')
     print(result)
